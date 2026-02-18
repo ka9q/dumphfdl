@@ -49,6 +49,8 @@ void *file_input_thread(void *ctx) {
 	size_t space_available, len, samples_read;
 	do {
 		len = fread(inbuf, 1, bufsize, file_input->fh);
+		if(len == 0)
+		  break; // probably not necessary, but to make sure
 		samples_read = len / input->bytes_per_sample;
 		while(true) {
 			pthread_mutex_lock(circ_buffer->mutex);
@@ -62,6 +64,7 @@ void *file_input_thread(void *ctx) {
 		input->convert_sample_buffer(input, inbuf, len, outbuf);
 		complex_samples_produce(circ_buffer, outbuf, samples_read);
 	} while(len > 0 && do_exit == 0);
+	fprintf(stderr,"dumphfdl pid %d: EOF on input, terminating\n",getpid());
 	fclose(file_input->fh);
 	file_input->fh = NULL;
 	debug_print(D_MISC, "Shutdown ordered, signaling consumer shutdown\n");
