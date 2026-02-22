@@ -52,13 +52,8 @@ static void start_all_output_threads_for_fmtr(void *p, void *ctx);
 static void start_output_thread(void *p, void *ctx);
 
 static void sighandler(int32_t sig) {
-	fprintf(stderr, "Got signal %d, ", sig);
-	if(do_exit == 0) {
-		fprintf(stderr, "exiting gracefully (send signal once again to force quit)\n");
-	} else {
-		fprintf(stderr, "forcing quit\n");
-	}
-	do_exit++;
+  fprintf(stderr, "dumphfdl pid %d: got signal %d\n", getpid(), sig);
+  do_exit = 1;
 }
 
 static void setup_signals() {
@@ -790,14 +785,13 @@ int32_t main(int32_t argc, char **argv) {
 		sleep(1);
 	}
 	hfdl_pdu_decoder_stop();
-	fprintf(stderr, "Waiting for all threads to finish\n");
-	while(do_exit < 2 && (
-			block_is_running(input) ||
+	fprintf(stderr, "dumphfdl pid %d: Waiting for all threads to finish\n",getpid());
+	while(block_is_running(input) ||
 			block_is_running(fft) ||
 			block_set_is_any_running(channel_cnt, channel_blocks) ||
 			hfdl_pdu_decoder_is_running() ||
 			output_thread_is_any_running(outputs)
-			)) {
+			) {
 		usleep(500000);
 	}
 

@@ -251,6 +251,7 @@ void *soapysdr_input_thread(void *ctx) {
 			err_cnt++;
 			if(err_cnt >= SOAPYSDR_MAX_ERR_CNT) {
 				do_exit = 1;
+				fprintf(stderr,"dumphfdl pid %d: error on soapysdr_input, terminating\n",getpid());
 				exitcode = EXIT_FAILURE;
 				break;
 			}
