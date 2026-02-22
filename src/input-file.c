@@ -49,8 +49,9 @@ void *file_input_thread(void *ctx) {
 	size_t space_available, len, samples_read;
 	do {
 		len = fread(inbuf, 1, bufsize, file_input->fh);
-		if(len == 0)
-		  break; // probably not necessary, but to make sure
+		if(len == 0) {
+			break; // probably not necessary, but to make sure
+		}
 		samples_read = len / input->bytes_per_sample;
 		while(true) {
 			pthread_mutex_lock(circ_buffer->mutex);

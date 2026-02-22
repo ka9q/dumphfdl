@@ -52,8 +52,8 @@ static void start_all_output_threads_for_fmtr(void *p, void *ctx);
 static void start_output_thread(void *p, void *ctx);
 
 static void sighandler(int32_t sig) {
-  fprintf(stderr, "dumphfdl pid %d: got signal %d\n", getpid(), sig);
-  do_exit = 1;
+	fprintf(stderr, "dumphfdl pid %d: got signal %d\n", getpid(), sig);
+	do_exit = 1;
 }
 
 static void setup_signals() {
