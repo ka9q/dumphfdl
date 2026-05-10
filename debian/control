@@ -1,0 +1,31 @@
+Source: dumphfdl
+Section: hamradio
+Priority: optional
+Maintainer: Phil Karn <karn@ka9q.net>
+Rules-Requires-Root: no
+Build-Depends:  debhelper-compat (= 13), cmake
+Standards-Version: 4.7.2
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Browser: https://salsa.debian.org/debian/dumphfdl
+Vcs-Git: https://github.com/ka9q/dumphfdl
+
+Package: dumphfdl
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ pkgconf,
+ libfftw3-dev,
+ libglib2.0-dev,
+ libacars2-dev,
+ libconfig++-dev,
+ libsoapysdr-dev,
+ libzmq3-dev,
+ librdkafka-dev,
+ libliquid-dev,
+ libsqlite3-dev
+Description: High Frequency Data Link (HFDL) packet demodulator/decoder
+ Decodes HFDL data transmissions from commercial airliners on HF radio
+ Used on transoceanic and remote routes as a satcom backup when VHF is
+ not available
+ 

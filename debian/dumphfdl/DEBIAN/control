@@ -1,0 +1,13 @@
+Package: dumphfdl
+Version: 1.7.0-212b2b3-1
+Architecture: amd64
+Maintainer: Phil Karn <karn@ka9q.net>
+Installed-Size: 185
+Depends: libacars2 (>= 2.2.1), libc6 (>= 2.34), libconfig++11 (>= 1.7.3), libfftw3-single3 (>= 3.3.10), libglib2.0-0t64 (>= 2.46.0), libliquid1 (>= 1.7.0), librdkafka1 (>= 1.2.1), libsoapysdr0.8 (>= 0.8.1), libsqlite3-0 (>= 3.5.9), libzmq5 (>= 3.2.3+dfsg), pkgconf, libfftw3-dev, libglib2.0-dev, libacars2-dev, libconfig++-dev, libsoapysdr-dev, libzmq3-dev, librdkafka-dev, libliquid-dev, libsqlite3-dev
+Section: hamradio
+Priority: optional
+Homepage: <insert the upstream URL, if relevant>
+Description: High Frequency Data Link (HFDL) packet demodulator/decoder
+ Decodes HFDL data transmissions from commercial airliners on HF radio
+ Used on transoceanic and remote routes as a satcom backup when VHF is
+ not available
