@@ -1,3 +1,0 @@
-shlibs:Depends=libacars2 (>= 2.2.1), libc6 (>= 2.34), libconfig++11 (>= 1.7.3), libfftw3-single3 (>= 3.3.10), libglib2.0-0t64 (>= 2.46.0), libliquid1 (>= 1.7.0), librdkafka1 (>= 1.2.1), libsoapysdr0.8 (>= 0.8.1), libsqlite3-0 (>= 3.5.9), libzmq5 (>= 3.2.3+dfsg)
-misc:Depends=
-misc:Pre-Depends=
