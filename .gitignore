@@ -1,4 +1,7 @@
 build
 .cache
 compile_commands.json
-obj-x86_64-linux-gnu/
+obj-x86_64-linux-gnu
+obj-aarch64-linux-gnu
+*~undo-tree~
+
